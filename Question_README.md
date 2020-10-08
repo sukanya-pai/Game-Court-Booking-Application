@@ -3,13 +3,15 @@ place where he lives but whenever he goes to any nearby court, he sees that the 
 already occupied and that he will have to book the court in person but Rohan is too busy to go
 to the court every time to just book it.
 
-You being a developer has been asked to develop an online application where people can book
-slots and courts available in different parts of the city for various game options like Tennis,
+You being a developer has been asked to develop an online application where **people can book
+slots and courts available in different parts of the city for various game options** like Tennis,
 Badminton, Table tennis, Football, etc.
 
-With this application, Rohan should be able to book court for any game of his choice and he
-must have an option to select the time slot as well. Ensure that your application is scalable in
-terms of supporting it for multiple cities, games, courts, etc
+With this application, Rohan should be able to 
+- book court for any game of his choice
+- he must have an option to select the time slot as well. 
+
+Ensure that your application is scalable in terms of supporting it for multiple cities, games, courts, etc
 
 Your application should support guest accounts along with subscribed users and it must include
 following APIs
@@ -18,8 +20,7 @@ following APIs
 - Book a slot
 
 You may modify the APIs based on your design but make sure that these functionalities are supported
-User interface is not expected, you can demonstrate through REST APIs. Your code has to be
-modular, scalable and include unit tests.
+User interface is not expected, you can demonstrate through REST APIs. Your code has to be modular, scalable and include unit tests.
 Example:
   - Bangalore
       - Badminton:
