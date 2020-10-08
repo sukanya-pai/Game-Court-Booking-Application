@@ -25,6 +25,7 @@
 - User should be able to see the court booking histories.
 
 ### Nice to have
+- User can be able to search/filter court details based on location, time slot and game options.
 - User should be able to cancel booking at any time and the court should go back into the pool of available courts
 - User should recieve e-mail notifications upon booking court
 
