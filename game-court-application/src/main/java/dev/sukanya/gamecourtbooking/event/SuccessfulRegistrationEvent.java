@@ -1,6 +1,6 @@
 package dev.sukanya.gamecourtbooking.event;
 
-import dev.sukanya.gamecourtbooking.model.User;
+import dev.sukanya.gamecourtbooking.model.user.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;

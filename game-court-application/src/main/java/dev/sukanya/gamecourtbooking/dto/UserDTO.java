@@ -7,7 +7,6 @@ import lombok.Setter;
 
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 //DTO-> Data Transfer Object --> To need for our usage (kind of model that we used before)

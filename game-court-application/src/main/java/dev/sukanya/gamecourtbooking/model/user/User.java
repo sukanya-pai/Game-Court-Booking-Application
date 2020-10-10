@@ -1,4 +1,4 @@
-package dev.sukanya.gamecourtbooking.model;
+package dev.sukanya.gamecourtbooking.model.user;
 
 import lombok.Getter;
 import lombok.Setter;

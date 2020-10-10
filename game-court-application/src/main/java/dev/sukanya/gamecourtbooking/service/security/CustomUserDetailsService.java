@@ -1,8 +1,8 @@
 package dev.sukanya.gamecourtbooking.service.security;
 
-import dev.sukanya.gamecourtbooking.model.Permission;
-import dev.sukanya.gamecourtbooking.model.Role;
-import dev.sukanya.gamecourtbooking.model.User;
+import dev.sukanya.gamecourtbooking.model.user.Permission;
+import dev.sukanya.gamecourtbooking.model.user.Role;
+import dev.sukanya.gamecourtbooking.model.user.User;
 import dev.sukanya.gamecourtbooking.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

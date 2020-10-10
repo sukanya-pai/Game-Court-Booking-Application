@@ -4,7 +4,7 @@ import dev.sukanya.gamecourtbooking.dto.ResponseDTO;
 import dev.sukanya.gamecourtbooking.dto.UserDTO;
 import dev.sukanya.gamecourtbooking.dto.UserResponseDTO;
 import dev.sukanya.gamecourtbooking.exceptions.UserAlreadyExistsException;
-import dev.sukanya.gamecourtbooking.model.User;
+import dev.sukanya.gamecourtbooking.model.user.User;
 import dev.sukanya.gamecourtbooking.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.Response;

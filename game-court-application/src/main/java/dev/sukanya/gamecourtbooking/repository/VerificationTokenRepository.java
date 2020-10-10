@@ -1,7 +1,6 @@
 package dev.sukanya.gamecourtbooking.repository;
 
-import dev.sukanya.gamecourtbooking.model.VerificationToken;
-import org.springframework.beans.factory.annotation.Autowired;
+import dev.sukanya.gamecourtbooking.model.user.VerificationToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

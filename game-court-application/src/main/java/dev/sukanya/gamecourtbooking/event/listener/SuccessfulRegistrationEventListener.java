@@ -1,8 +1,8 @@
 package dev.sukanya.gamecourtbooking.event.listener;
 
 import dev.sukanya.gamecourtbooking.event.SuccessfulRegistrationEvent;
-import dev.sukanya.gamecourtbooking.model.User;
-import dev.sukanya.gamecourtbooking.model.VerificationToken;
+import dev.sukanya.gamecourtbooking.model.user.User;
+import dev.sukanya.gamecourtbooking.model.user.VerificationToken;
 import dev.sukanya.gamecourtbooking.repository.VerificationTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;

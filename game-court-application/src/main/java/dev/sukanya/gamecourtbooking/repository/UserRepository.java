@@ -1,6 +1,6 @@
 package dev.sukanya.gamecourtbooking.repository;
 
-import dev.sukanya.gamecourtbooking.model.User;
+import dev.sukanya.gamecourtbooking.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

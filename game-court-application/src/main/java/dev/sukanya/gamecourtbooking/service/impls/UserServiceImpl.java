@@ -1,12 +1,13 @@
-package dev.sukanya.gamecourtbooking.service;
+package dev.sukanya.gamecourtbooking.service.impls;
 
 import dev.sukanya.gamecourtbooking.dto.UserDTO;
 import dev.sukanya.gamecourtbooking.event.SuccessfulRegistrationEvent;
 import dev.sukanya.gamecourtbooking.exceptions.UserAlreadyExistsException;
-import dev.sukanya.gamecourtbooking.model.User;
-import dev.sukanya.gamecourtbooking.model.VerificationToken;
+import dev.sukanya.gamecourtbooking.model.user.User;
+import dev.sukanya.gamecourtbooking.model.user.VerificationToken;
 import dev.sukanya.gamecourtbooking.repository.UserRepository;
 import dev.sukanya.gamecourtbooking.repository.VerificationTokenRepository;
+import dev.sukanya.gamecourtbooking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,7 +19,7 @@ import java.util.Date;
 
 @Service    //Service says Spring Boot that this is a bean and make sure this bean is created
 @Transactional  //for all methods of service, give transactional properties same as database
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
