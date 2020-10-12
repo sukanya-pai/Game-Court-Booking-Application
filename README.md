@@ -1,6 +1,18 @@
-# Intuit Craft Demo
+# Intuit Craft Demo - GameCourtBookingApplication
 
-# Use Cases to be covered:
+# High Level Design:
+
+- The request comes from browser or app of different client devices like laptop, phone or tablets etc. 
+- The request is routed to correct application backend server at the backend by means of a load balancer (to not burden any servers), the app server serves the requests and if necessary contacts the database/storage unit and returns the response to the client. 
+- To decrease the latency of the requests, we can store some of the results on app server cache. 
+- By making use of load balancer and multiple server and database copies, we ensure that the whole system does not go down. There is no single point of failure. 
+![alt HLD Flow](https://github.com/SSPai123/Intuit_Craft_Demo/blob/main/HLD.png?raw=true)
+- When lots of concurrent requests occur for booking, for providing best possible user experience, the implementation should be in such a way that whoever clicks proceeds to pay the payment amount first, we lock the court for that user for specified period of time until the user pays successfully.
+  - By doing this we avoid the issue of multiple users competing for the same court.
+  - Only the eventual latest courts would be shown to other users on the platform (Slight inconsistency in the status of court during the time of payment is acceptable.)
+
+# Low Level Design:
+## Use Cases to be covered:
 ## Admin
 - Admin should be able to add or remove multiple game options like Tennis, Badminton, Table tennis, Football etc.
 - Admin should be able to add or remove multiple locations
@@ -16,13 +28,12 @@
 - User should be able to book court for any game of their choice along with an option to select the time slot.
 - When the user books a court, the selected court and time slot details of a location are sent and booked in the name of a user. 
 - User can be redirected to payment portal to pay the booking amount or the user can just book the slot and pay the amount in person. 
-  - This is a debatable requirement. Depends on the system requirements whether the application charges booking amount or not.
-  - For now I am assuming that there is no such booking fee needed and the user can just go to the location and pay the cost of court usage on the spot.
 -  Users who are not logged in should be asked to login/ register to the application in case they want to book a court. 
-  - This is again a debatable environment. 
-  - We can either ask the non-subscribed members to login to proceed booking.
-  - Or they can still book a system by giving their complete details and email address.
+   - This is again a debatable environment. 
+   - We can either ask the non-subscribed members to login to proceed booking.
+   - Or they can still book a system by giving their complete details and email address.
 - User should be able to see the court booking histories.
+![alt use case diagram](https://github.com/SSPai123/Intuit_Craft_Demo/blob/main/Game%20Court%20Booking%20System%20-%20Use%20Case%20Diagram.png)
 
 ### Nice to have
 - User can be able to search/filter court details based on location, time slot and game options.
