@@ -1,8 +1,6 @@
-package dev.sukanya.gamecourtbooking.service;
+package dev.sukanya.gamecourtbooking.service.interfaces;
 
-import dev.sukanya.gamecourtbooking.dto.GameDTO;
-import dev.sukanya.gamecourtbooking.dto.LocationDTO;
-import dev.sukanya.gamecourtbooking.exceptions.GameAlreadyExistsException;
+import dev.sukanya.gamecourtbooking.dto.location.LocationDTO;
 import dev.sukanya.gamecourtbooking.exceptions.LocationAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.courts.Location;
 

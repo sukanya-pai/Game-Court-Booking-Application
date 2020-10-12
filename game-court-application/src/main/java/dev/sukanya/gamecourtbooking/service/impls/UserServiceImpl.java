@@ -1,13 +1,13 @@
 package dev.sukanya.gamecourtbooking.service.impls;
 
-import dev.sukanya.gamecourtbooking.dto.UserDTO;
+import dev.sukanya.gamecourtbooking.dto.user.UserDTO;
 import dev.sukanya.gamecourtbooking.event.SuccessfulRegistrationEvent;
 import dev.sukanya.gamecourtbooking.exceptions.UserAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.user.User;
 import dev.sukanya.gamecourtbooking.model.user.VerificationToken;
 import dev.sukanya.gamecourtbooking.repository.UserRepository;
 import dev.sukanya.gamecourtbooking.repository.VerificationTokenRepository;
-import dev.sukanya.gamecourtbooking.service.UserService;
+import dev.sukanya.gamecourtbooking.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

@@ -1,10 +1,11 @@
 package dev.sukanya.gamecourtbooking.controller;
 
 import dev.sukanya.gamecourtbooking.dto.*;
-import dev.sukanya.gamecourtbooking.exceptions.GameAlreadyExistsException;
+import dev.sukanya.gamecourtbooking.dto.location.LocationDTO;
+import dev.sukanya.gamecourtbooking.dto.location.LocationResponseDTO;
 import dev.sukanya.gamecourtbooking.exceptions.LocationAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.courts.Location;
-import dev.sukanya.gamecourtbooking.service.LocationService;
+import dev.sukanya.gamecourtbooking.service.interfaces.LocationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

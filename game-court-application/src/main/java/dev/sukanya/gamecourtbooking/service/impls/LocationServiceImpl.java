@@ -1,11 +1,10 @@
 package dev.sukanya.gamecourtbooking.service.impls;
 
-import dev.sukanya.gamecourtbooking.dto.LocationDTO;
-import dev.sukanya.gamecourtbooking.exceptions.GameAlreadyExistsException;
+import dev.sukanya.gamecourtbooking.dto.location.LocationDTO;
 import dev.sukanya.gamecourtbooking.exceptions.LocationAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.courts.Location;
 import dev.sukanya.gamecourtbooking.repository.LocationRepository;
-import dev.sukanya.gamecourtbooking.service.LocationService;
+import dev.sukanya.gamecourtbooking.service.interfaces.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

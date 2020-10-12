@@ -1,6 +1,5 @@
 package dev.sukanya.gamecourtbooking.validator;
 
-import dev.sukanya.gamecourtbooking.annotations.EmailConstraint;
 import dev.sukanya.gamecourtbooking.annotations.PinCodeConstraint;
 
 import javax.validation.ConstraintValidator;
@@ -16,7 +15,7 @@ public class PinCodeValidator implements
     @Override
     public boolean isValid(String pinCode,
                            ConstraintValidatorContext cxt) {
-        boolean isValid = pinCode != null && pinCode.matches("^[0-9+]") && pinCode.length()==6;
+        boolean isValid = pinCode != null && pinCode.matches("^[0-9]+") && pinCode.length()==6;
         return isValid ;
     }
 }

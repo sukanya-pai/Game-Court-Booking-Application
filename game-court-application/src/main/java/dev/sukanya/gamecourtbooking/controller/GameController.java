@@ -1,11 +1,11 @@
 package dev.sukanya.gamecourtbooking.controller;
 
-import dev.sukanya.gamecourtbooking.dto.*;
+import dev.sukanya.gamecourtbooking.dto.game.GameDTO;
+import dev.sukanya.gamecourtbooking.dto.game.GameResponseDTO;
+import dev.sukanya.gamecourtbooking.dto.ResponseDTO;
 import dev.sukanya.gamecourtbooking.exceptions.GameAlreadyExistsException;
-import dev.sukanya.gamecourtbooking.exceptions.UserAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.courts.Game;
-import dev.sukanya.gamecourtbooking.model.user.User;
-import dev.sukanya.gamecourtbooking.service.GameService;
+import dev.sukanya.gamecourtbooking.service.interfaces.GameService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +28,7 @@ public class GameController {
 
     @PostMapping("/game/addGame")
     public ResponseDTO<?> addGame(@RequestBody @Valid GameDTO gameDTO, BindingResult result){
+
         log.info("Received Request for adding new game ",gameDTO.getGameName());
         List<String> errorMessages = new ArrayList<String>();
         if(checkForErrors(result, errorMessages)){

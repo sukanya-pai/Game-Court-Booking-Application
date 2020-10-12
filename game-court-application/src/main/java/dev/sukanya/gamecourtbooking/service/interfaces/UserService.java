@@ -1,6 +1,6 @@
-package dev.sukanya.gamecourtbooking.service;
+package dev.sukanya.gamecourtbooking.service.interfaces;
 
-import dev.sukanya.gamecourtbooking.dto.UserDTO;
+import dev.sukanya.gamecourtbooking.dto.user.UserDTO;
 import dev.sukanya.gamecourtbooking.exceptions.UserAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.user.User;
 

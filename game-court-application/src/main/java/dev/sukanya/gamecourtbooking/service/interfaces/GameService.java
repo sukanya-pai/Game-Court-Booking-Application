@@ -1,6 +1,6 @@
-package dev.sukanya.gamecourtbooking.service;
+package dev.sukanya.gamecourtbooking.service.interfaces;
 
-import dev.sukanya.gamecourtbooking.dto.GameDTO;
+import dev.sukanya.gamecourtbooking.dto.game.GameDTO;
 import dev.sukanya.gamecourtbooking.exceptions.GameAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.courts.Game;
 

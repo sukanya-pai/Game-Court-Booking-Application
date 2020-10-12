@@ -1,14 +1,10 @@
 package dev.sukanya.gamecourtbooking.service.impls;
 
-import dev.sukanya.gamecourtbooking.dto.GameDTO;
-import dev.sukanya.gamecourtbooking.dto.UserDTO;
-import dev.sukanya.gamecourtbooking.event.SuccessfulRegistrationEvent;
+import dev.sukanya.gamecourtbooking.dto.game.GameDTO;
 import dev.sukanya.gamecourtbooking.exceptions.GameAlreadyExistsException;
-import dev.sukanya.gamecourtbooking.exceptions.UserAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.courts.Game;
-import dev.sukanya.gamecourtbooking.model.user.User;
 import dev.sukanya.gamecourtbooking.repository.GameRepository;
-import dev.sukanya.gamecourtbooking.service.GameService;
+import dev.sukanya.gamecourtbooking.service.interfaces.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

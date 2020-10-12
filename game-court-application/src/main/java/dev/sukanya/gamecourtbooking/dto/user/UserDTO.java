@@ -1,4 +1,4 @@
-package dev.sukanya.gamecourtbooking.dto;
+package dev.sukanya.gamecourtbooking.dto.user;
 
 import dev.sukanya.gamecourtbooking.annotations.EmailConstraint;
 import dev.sukanya.gamecourtbooking.annotations.PasswordConstraint;

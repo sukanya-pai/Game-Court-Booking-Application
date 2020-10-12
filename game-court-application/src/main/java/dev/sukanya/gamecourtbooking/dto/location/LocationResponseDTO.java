@@ -1,4 +1,4 @@
-package dev.sukanya.gamecourtbooking.dto;
+package dev.sukanya.gamecourtbooking.dto.location;
 
 import lombok.Getter;
 import lombok.Setter;
