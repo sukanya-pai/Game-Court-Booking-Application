@@ -1,0 +1,45 @@
+
+A
+java:S1452"&Remove usage of generic wildcard type.(æÄ¼úÿÿÿÿ
+O
+java:S1854$"9Remove this useless assignment to local variable "court".(é¢õş
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(œ©õÒÿÿÿÿÿ
+t
+java:S2293!"YReplace the type specification in this constructor call with the diamond operator ("<>").(¥µ¨´ÿÿÿÿÿ
+t
+java:S2293%"YReplace the type specification in this constructor call with the diamond operator ("<>").(òí½‡ÿÿÿÿÿ
+o
+java:S2293'"YReplace the type specification in this constructor call with the diamond operator ("<>").(Üó¹”
+<
+java:S1452-"&Remove usage of generic wildcard type.(ë°‚ı
+o
+java:S22932"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ôû­¦
+o
+java:S22934"YReplace the type specification in this constructor call with the diamond operator ("<>").(Üó¹”
+<
+java:S1452:"&Remove usage of generic wildcard type.(êôßï
+o
+java:S2293?"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ó½„É
+o
+java:S2293A"YReplace the type specification in this constructor call with the diamond operator ("<>").(Üó¹”
+<
+java:S1452G"&Remove usage of generic wildcard type.(ĞÖï¹
+o
+java:S2293L"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ôû­¦
+o
+java:S2293N"YReplace the type specification in this constructor call with the diamond operator ("<>").(Üó¹”
+A
+java:S1452T"&Remove usage of generic wildcard type.(¿°Æ’ûÿÿÿÿ
+o
+java:S2293Y"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ôû­¦
+o
+java:S2293["YReplace the type specification in this constructor call with the diamond operator ("<>").(Üó¹”
+<
+java:S1452`"&Remove usage of generic wildcard type.(ñ‰Ô
+o
+java:S2293e"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ôû­¦
+o
+java:S2293g"YReplace the type specification in this constructor call with the diamond operator ("<>").(Üó¹”
+@
+java:S1481$"*Remove this unused "court" local variable.(é¢õş

@@ -1,0 +1,9 @@
+
+€
+java:S14885"jImmediately return this expression instead of assigning it to the temporary variable "bookingResponseDTO".(†ƒŸ€
+\
+java:S1854"ARemove this useless assignment to local variable "bookingFromDB".(­Š‚ˆûÿÿÿÿ
+…
+java:S1488"jImmediately return this expression instead of assigning it to the temporary variable "bookingResponseDTO".(žà©·þÿÿÿÿ
+M
+java:S1481"2Remove this unused "bookingFromDB" local variable.(­Š‚ˆûÿÿÿÿ
