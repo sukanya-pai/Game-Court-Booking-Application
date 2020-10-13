@@ -2,8 +2,10 @@ package dev.sukanya.gamecourtbooking.service.impls;
 
 import dev.sukanya.gamecourtbooking.dto.booking.BookingDTO;
 import dev.sukanya.gamecourtbooking.dto.booking.BookingResponseDTO;
+import dev.sukanya.gamecourtbooking.dto.timeslot.TimeSlotResponseDTO;
 import dev.sukanya.gamecourtbooking.dto.user.UserResponseDTO;
 import dev.sukanya.gamecourtbooking.model.courts.Booking;
+import dev.sukanya.gamecourtbooking.model.courts.TimeSlot;
 import dev.sukanya.gamecourtbooking.repository.BookingRepository;
 import dev.sukanya.gamecourtbooking.service.interfaces.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,8 +53,12 @@ public class BookingServiceImpl implements BookingService {
                 " ,"+bookingFromDB.getCourt().getLocation().getPinCode();
         UserResponseDTO userResponseDTO = new UserResponseDTO(bookingFromDB.getUser().getId(),bookingFromDB.getUser().getEmail(), bookingFromDB.getUser().getFullName(), bookingFromDB.getUser().isActive());
         BookingResponseDTO bookingResponseDTO = new BookingResponseDTO(
-                bookingFromDB.getId(), bookingFromDB.getBookingName(),userResponseDTO , bookingFromDB.getCourt().getCourtName(), courtLocation, bookingFromDB.getTimeSlot()
+                bookingFromDB.getId(), bookingFromDB.getBookingName(),userResponseDTO , bookingFromDB.getCourt().getCourtName(), courtLocation, convertToTimeSlotResponseDTO(bookingFromDB.getTimeSlot())
         );
         return bookingResponseDTO;
+    }
+
+    private TimeSlotResponseDTO convertToTimeSlotResponseDTO(TimeSlot timeSlot){
+        return  new TimeSlotResponseDTO(timeSlot.getId(),timeSlot.getStartDate(),timeSlot.getEndDate());
     }
 }

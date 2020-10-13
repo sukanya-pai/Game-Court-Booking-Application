@@ -18,4 +18,9 @@ public class TimeSlotResponseDTO {
         this.startDate = (Time) timeSlotObject[1];
         this.endDate = (Time) timeSlotObject[2];
     }
+    public TimeSlotResponseDTO(int id, Time startDate, Time endDate){
+        this.id = id;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 }

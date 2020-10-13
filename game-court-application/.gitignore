@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+##Plugins
+.diffblue/
+.idea/libraries/Maven__junit_junit_4_13.xml
+.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml
+.idea/sonarlint/

@@ -1,7 +1,7 @@
 package dev.sukanya.gamecourtbooking.dto.booking;
 
+import dev.sukanya.gamecourtbooking.dto.timeslot.TimeSlotResponseDTO;
 import dev.sukanya.gamecourtbooking.dto.user.UserResponseDTO;
-import dev.sukanya.gamecourtbooking.model.courts.TimeSlot;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,9 +19,9 @@ public class BookingResponseDTO {
 
     private String address;
 
-    private TimeSlot timeSlot;
+    private TimeSlotResponseDTO timeSlot;
 
-    public BookingResponseDTO(int bookindId, String bookingName, UserResponseDTO user, String courtName, String address, TimeSlot timeSlot) {
+    public BookingResponseDTO(int bookindId, String bookingName, UserResponseDTO user, String courtName, String address, TimeSlotResponseDTO timeSlot) {
         this.bookindId = bookindId;
         this.bookingName = bookingName;
         this.user = user;
