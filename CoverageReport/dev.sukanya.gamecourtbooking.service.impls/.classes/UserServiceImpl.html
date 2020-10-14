@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: UserServiceImpl</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">dev.sukanya.gamecourtbooking.service.impls</a> ]
+</div>
+
+<h1>Coverage Summary for Class: UserServiceImpl (dev.sukanya.gamecourtbooking.service.impls)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    9.5%
+  </span>
+  <span class="absValue">
+    (2/ 21)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$632aa19d</td>
+  </tr>
+  <tr>
+    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$f4474969</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    9.5%
+  </span>
+  <span class="absValue">
+    (2/ 21)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package dev.sukanya.gamecourtbooking.service.impls;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import dev.sukanya.gamecourtbooking.dto.user.UserDTO;
+<i>4</i>&nbsp;import dev.sukanya.gamecourtbooking.event.SuccessfulRegistrationEvent;
+<i>5</i>&nbsp;import dev.sukanya.gamecourtbooking.exceptions.UserAlreadyExistsException;
+<i>6</i>&nbsp;import dev.sukanya.gamecourtbooking.model.user.User;
+<i>7</i>&nbsp;import dev.sukanya.gamecourtbooking.model.user.VerificationToken;
+<i>8</i>&nbsp;import dev.sukanya.gamecourtbooking.repository.UserRepository;
+<i>9</i>&nbsp;import dev.sukanya.gamecourtbooking.repository.VerificationTokenRepository;
+<i>10</i>&nbsp;import dev.sukanya.gamecourtbooking.service.interfaces.UserService;
+<i>11</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>12</i>&nbsp;import org.springframework.context.ApplicationEventPublisher;
+<i>13</i>&nbsp;import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+<i>14</i>&nbsp;import org.springframework.security.crypto.password.PasswordEncoder;
+<i>15</i>&nbsp;import org.springframework.stereotype.Service;
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;import javax.transaction.Transactional;
+<i>18</i>&nbsp;import java.util.Date;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;@Service    //Service says Spring Boot that this is a bean and make sure this bean is created
+<i>21</i>&nbsp;@Transactional  //for all methods of service, give transactional properties same as database
+<b class="fc"><i>22</i>&nbsp;public class UserServiceImpl implements UserService {</b>
+<i>23</i>&nbsp;    @Autowired
+<i>24</i>&nbsp;    private UserRepository userRepository;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    @Autowired
+<i>27</i>&nbsp;    private ApplicationEventPublisher applicationEventPublisher;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    @Autowired
+<i>30</i>&nbsp;    private VerificationTokenRepository verificationTokenRepository;
+<i>31</i>&nbsp;//    @Autowired
+<i>32</i>&nbsp;//    private PasswordEncoder passwordEncoder;
+<b class="fc"><i>33</i>&nbsp;    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);</b>
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    @Override
+<i>36</i>&nbsp;    public User registerUser(UserDTO userDTO) throws UserAlreadyExistsException {
+<b class="nc"><i>37</i>&nbsp;        if(userRepository.findByEmail(userDTO.getEmail())!=null){</b>
+<i>38</i>&nbsp;            //User already exists, throw exception
+<b class="nc"><i>39</i>&nbsp;            throw new UserAlreadyExistsException(&quot;User already exists!&quot;);</b>
+<i>40</i>&nbsp;        }
+<i>41</i>&nbsp;
+<b class="nc"><i>42</i>&nbsp;        User user = new User();</b>
+<b class="nc"><i>43</i>&nbsp;        user.setEmail(userDTO.getEmail());</b>
+<b class="nc"><i>44</i>&nbsp;        user.setFullName(userDTO.getFullName());</b>
+<b class="nc"><i>45</i>&nbsp;        user.setActive(false);</b>
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;        // Spring allows us to send password Encoder --&gt; SpringSecurity Comes into picture. --&gt; defined in SecurityConfig
+<b class="nc"><i>48</i>&nbsp;        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));</b>
+<i>49</i>&nbsp;        //When a person logs in, we will again encrypt the password with same algorithm
+<i>50</i>&nbsp;        //We compare the encrypted password with what we have
+<i>51</i>&nbsp;        //There is no need of decrypting password.
+<i>52</i>&nbsp;        //Companies generally dont store the password for security concerns
+<i>53</i>&nbsp;
+<b class="nc"><i>54</i>&nbsp;        User savedUser = userRepository.save(user); //This savedUser object will have ID saved in DB</b>
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;        //inbuilt event publisher provided by Spring boot as we are not doing anything special
+<b class="nc"><i>57</i>&nbsp;        applicationEventPublisher.publishEvent(new SuccessfulRegistrationEvent(savedUser)); //events are messages that are produced by someone and consumed by someone</b>
+<b class="nc"><i>58</i>&nbsp;        return savedUser;</b>
+<i>59</i>&nbsp;    }
+<i>60</i>&nbsp;
+<i>61</i>&nbsp;    @Override
+<i>62</i>&nbsp;    public User validateUserOnToken(String token){
+<i>63</i>&nbsp;        //TODO: Check token repo if there is that token
+<i>64</i>&nbsp;        //TODO: if it exists check if it belongs to the user
+<i>65</i>&nbsp;        //TODO: check if it is not expired yet
+<i>66</i>&nbsp;
+<b class="nc"><i>67</i>&nbsp;        VerificationToken verificationToken = verificationTokenRepository.findByToken(token);</b>
+<b class="nc"><i>68</i>&nbsp;        if(verificationToken==null) return null;</b>
+<i>69</i>&nbsp;
+<b class="nc"><i>70</i>&nbsp;        if(verificationToken.getExpiryTime().getTime() - new Date().getTime()&gt;0){</b>
+<i>71</i>&nbsp;            //token not yet expired
+<i>72</i>&nbsp;            //mark user as active
+<b class="nc"><i>73</i>&nbsp;            User verifiedUser = verificationToken.getUser();</b>
+<b class="nc"><i>74</i>&nbsp;            verifiedUser.setActive(true);</b>
+<b class="nc"><i>75</i>&nbsp;            userRepository.save(verifiedUser);</b>
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;            //Also remove verification token
+<b class="nc"><i>78</i>&nbsp;            verificationTokenRepository.delete(verificationToken);</b>
+<b class="nc"><i>79</i>&nbsp;            return verifiedUser;</b>
+<i>80</i>&nbsp;        }else{
+<b class="nc"><i>81</i>&nbsp;            return null;</b>
+<i>82</i>&nbsp;        }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;        //if not expired, return verified user
+<i>85</i>&nbsp;        //else return null;
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;    }
+<i>88</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-10-15 02:49</div>
+</div>
+</body>
+</html>

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class BookingResponseDTO {
 
-    private int bookindId;
+    private int bookingId;
 
     private String bookingName;
 
@@ -21,8 +21,8 @@ public class BookingResponseDTO {
 
     private TimeSlotResponseDTO timeSlot;
 
-    public BookingResponseDTO(int bookindId, String bookingName, UserResponseDTO user, String courtName, String address, TimeSlotResponseDTO timeSlot) {
-        this.bookindId = bookindId;
+    public BookingResponseDTO(int bookingId, String bookingName, UserResponseDTO user, String courtName, String address, TimeSlotResponseDTO timeSlot) {
+        this.bookingId = bookingId;
         this.bookingName = bookingName;
         this.user = user;
         this.courtName = courtName;

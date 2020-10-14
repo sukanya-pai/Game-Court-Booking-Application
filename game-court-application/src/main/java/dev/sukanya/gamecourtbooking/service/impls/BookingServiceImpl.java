@@ -30,7 +30,7 @@ public class BookingServiceImpl implements BookingService {
         booking.setTimeSlot(record.getTimeSlot());
 
         Booking bookingFromDB = bookingRepository.save(booking);
-        BookingResponseDTO bookingResponseDTO = convertToBookingResponseDTO(booking);
+        BookingResponseDTO bookingResponseDTO = convertToBookingResponseDTO(bookingFromDB);
 
         return bookingResponseDTO;
     }
