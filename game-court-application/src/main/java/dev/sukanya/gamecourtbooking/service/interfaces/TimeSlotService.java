@@ -5,6 +5,7 @@ import dev.sukanya.gamecourtbooking.model.courts.TimeSlot;
 
 import java.util.List;
 
+
 public interface TimeSlotService {
     TimeSlot addTimeSlot(TimeSlotDTO timeSlotDTO);
 

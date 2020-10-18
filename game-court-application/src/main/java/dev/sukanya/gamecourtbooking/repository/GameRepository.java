@@ -9,5 +9,4 @@ public interface GameRepository extends JpaRepository<Game,Integer> {
 
     Game findGameByGameName(String name);
 
-
 }

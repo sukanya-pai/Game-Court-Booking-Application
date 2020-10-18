@@ -19,5 +19,5 @@ public interface CourtService {
 
     Court addCourt(CourtDTO court);
 
-    List<String> addMultipleCourts(List<Court> courts);
+    List<Court> getCourtsByGameName(String gameName);
 }

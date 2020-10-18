@@ -5,6 +5,7 @@ import dev.sukanya.gamecourtbooking.model.courts.TimeSlot;
 import dev.sukanya.gamecourtbooking.repository.TimeSlotRepository;
 import dev.sukanya.gamecourtbooking.service.interfaces.TimeSlotService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Service
 @Transactional
+@Component
 public class TimeSlotServiceImpl implements TimeSlotService {
     @Autowired
     private TimeSlotRepository timeSlotRepository;

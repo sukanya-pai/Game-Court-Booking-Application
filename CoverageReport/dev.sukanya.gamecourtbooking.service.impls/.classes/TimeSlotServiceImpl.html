@@ -39,43 +39,58 @@
   <td class="name">TimeSlotServiceImpl</td>
 <td class="coverageStat">
   <span class="percent">
-    33.3%
+    100%
   </span>
   <span class="absValue">
-    (1/ 3)
+    (3/ 3)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    8.3%
+    100%
   </span>
   <span class="absValue">
-    (1/ 12)
+    (12/ 12)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$1b0dfb3d</td>
+    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$2cabc3d6</td>
   </tr>
   <tr>
-    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$ac2aa309</td>
+    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$2cc69e9e</td>
+  </tr>
+  <tr>
+    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$2cc69e9e$$FastClassBySpringCGLIB$$54856ae4</td>
+  </tr>
+  <tr>
+    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$4fbb07fd</td>
+  </tr>
+  <tr>
+    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$87698cc0</td>
+  </tr>
+  <tr>
+    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$de3c13cc</td>
+  </tr>
+  <tr>
+    <td class="name">TimeSlotServiceImpl$$FastClassBySpringCGLIB$$1df7eb71</td>
   </tr>
 <tr>
   <td class="name"><strong>total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    33.3%
+    100%
   </span>
   <span class="absValue">
-    (1/ 3)
+    (3/ 3)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    8.3%
+    100%
   </span>
   <span class="absValue">
-    (1/ 12)
+    (12/ 12)
   </span>
 </td>
 </tr>
@@ -92,45 +107,47 @@
 <i>5</i>&nbsp;import dev.sukanya.gamecourtbooking.repository.TimeSlotRepository;
 <i>6</i>&nbsp;import dev.sukanya.gamecourtbooking.service.interfaces.TimeSlotService;
 <i>7</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
-<i>8</i>&nbsp;import org.springframework.stereotype.Service;
-<i>9</i>&nbsp;
-<i>10</i>&nbsp;import javax.transaction.Transactional;
-<i>11</i>&nbsp;import java.util.ArrayList;
-<i>12</i>&nbsp;import java.util.List;
-<i>13</i>&nbsp;
-<i>14</i>&nbsp;@Service
-<i>15</i>&nbsp;@Transactional
-<b class="fc"><i>16</i>&nbsp;public class TimeSlotServiceImpl implements TimeSlotService {</b>
-<i>17</i>&nbsp;    @Autowired
-<i>18</i>&nbsp;    private TimeSlotRepository timeSlotRepository;
-<i>19</i>&nbsp;
-<i>20</i>&nbsp;    @Override
-<i>21</i>&nbsp;    public TimeSlot addTimeSlot(TimeSlotDTO timeSlotDTO) {
-<b class="nc"><i>22</i>&nbsp;        TimeSlot timeSlotForDB = new TimeSlot();</b>
-<b class="nc"><i>23</i>&nbsp;        timeSlotForDB.setStartDate(timeSlotDTO.getStartDate());</b>
-<b class="nc"><i>24</i>&nbsp;        timeSlotForDB.setEndDate(timeSlotDTO.getEndDate());</b>
-<i>25</i>&nbsp;
-<b class="nc"><i>26</i>&nbsp;        TimeSlot savedTimeSlot = timeSlotRepository.save(timeSlotForDB); //This savedGame object will have ID saved in DB</b>
+<i>8</i>&nbsp;import org.springframework.stereotype.Component;
+<i>9</i>&nbsp;import org.springframework.stereotype.Service;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;import javax.transaction.Transactional;
+<i>12</i>&nbsp;import java.util.ArrayList;
+<i>13</i>&nbsp;import java.util.List;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;@Service
+<i>16</i>&nbsp;@Transactional
+<i>17</i>&nbsp;@Component
+<b class="fc"><i>18</i>&nbsp;public class TimeSlotServiceImpl implements TimeSlotService {</b>
+<i>19</i>&nbsp;    @Autowired
+<i>20</i>&nbsp;    private TimeSlotRepository timeSlotRepository;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @Override
+<i>23</i>&nbsp;    public TimeSlot addTimeSlot(TimeSlotDTO timeSlotDTO) {
+<b class="fc"><i>24</i>&nbsp;        TimeSlot timeSlotForDB = new TimeSlot();</b>
+<b class="fc"><i>25</i>&nbsp;        timeSlotForDB.setStartDate(timeSlotDTO.getStartDate());</b>
+<b class="fc"><i>26</i>&nbsp;        timeSlotForDB.setEndDate(timeSlotDTO.getEndDate());</b>
 <i>27</i>&nbsp;
-<b class="nc"><i>28</i>&nbsp;        return savedTimeSlot;</b>
-<i>29</i>&nbsp;    }
-<i>30</i>&nbsp;
-<i>31</i>&nbsp;    @Override
-<i>32</i>&nbsp;    public List&lt;String&gt; addMultipleTimeSlots(List&lt;TimeSlotDTO&gt; timeSlotDTOs) {
-<b class="nc"><i>33</i>&nbsp;        List&lt;String&gt; status = new ArrayList&lt;&gt;();</b>
-<b class="nc"><i>34</i>&nbsp;       for(TimeSlotDTO timeSlotDTO: timeSlotDTOs){</b>
-<b class="nc"><i>35</i>&nbsp;           TimeSlot savedTimeSlot = addTimeSlot(timeSlotDTO);</b>
-<b class="nc"><i>36</i>&nbsp;           status.add(savedTimeSlot.getStartDate() +&quot;&amp; &quot;+savedTimeSlot.getEndDate()+ &quot; - Time Slot added successfully.&quot;);</b>
-<b class="nc"><i>37</i>&nbsp;       }</b>
-<b class="nc"><i>38</i>&nbsp;       return status;</b>
-<i>39</i>&nbsp;    }
-<i>40</i>&nbsp;}
+<b class="fc"><i>28</i>&nbsp;        TimeSlot savedTimeSlot = timeSlotRepository.save(timeSlotForDB); //This savedGame object will have ID saved in DB</b>
+<i>29</i>&nbsp;
+<b class="fc"><i>30</i>&nbsp;        return savedTimeSlot;</b>
+<i>31</i>&nbsp;    }
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    @Override
+<i>34</i>&nbsp;    public List&lt;String&gt; addMultipleTimeSlots(List&lt;TimeSlotDTO&gt; timeSlotDTOs) {
+<b class="fc"><i>35</i>&nbsp;        List&lt;String&gt; status = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>36</i>&nbsp;       for(TimeSlotDTO timeSlotDTO: timeSlotDTOs){</b>
+<b class="fc"><i>37</i>&nbsp;           TimeSlot savedTimeSlot = addTimeSlot(timeSlotDTO);</b>
+<b class="fc"><i>38</i>&nbsp;           status.add(savedTimeSlot.getStartDate() +&quot;&amp; &quot;+savedTimeSlot.getEndDate()+ &quot; - Time Slot added successfully.&quot;);</b>
+<b class="fc"><i>39</i>&nbsp;       }</b>
+<b class="fc"><i>40</i>&nbsp;       return status;</b>
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2020-10-15 02:49</div>
+    <div style="float:right;">generated on 2020-10-19 01:01</div>
 </div>
 </body>
 </html>

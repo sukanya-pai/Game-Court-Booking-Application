@@ -68,8 +68,8 @@ public class CourtServiceImpl implements CourtService {
         return savedCourt;
     }
 
-    @Override
-    public List<String> addMultipleCourts(List<Court> courts) {
-        return null;
+    public List<Court> getCourtsByGameName(String gameName) {
+
+        return courtRepository.findCourtsByGame_GameName( gameName);
     }
 }

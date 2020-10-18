@@ -39,43 +39,58 @@
   <td class="name">CourtServiceImpl</td>
 <td class="coverageStat">
   <span class="percent">
-    12.5%
+    100%
   </span>
   <span class="absValue">
-    (1/ 8)
+    (8/ 8)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    5%
+    100%
   </span>
   <span class="absValue">
-    (1/ 20)
+    (20/ 20)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">CourtServiceImpl$$EnhancerBySpringCGLIB$$243872d3</td>
+    <td class="name">CourtServiceImpl$$EnhancerBySpringCGLIB$$35d63b6c</td>
   </tr>
   <tr>
-    <td class="name">CourtServiceImpl$$EnhancerBySpringCGLIB$$b5551a9f</td>
+    <td class="name">CourtServiceImpl$$EnhancerBySpringCGLIB$$35d63b6c$$FastClassBySpringCGLIB$$6ea525a6</td>
+  </tr>
+  <tr>
+    <td class="name">CourtServiceImpl$$EnhancerBySpringCGLIB$$35f11634</td>
+  </tr>
+  <tr>
+    <td class="name">CourtServiceImpl$$EnhancerBySpringCGLIB$$58e57f93</td>
+  </tr>
+  <tr>
+    <td class="name">CourtServiceImpl$$EnhancerBySpringCGLIB$$90940456</td>
+  </tr>
+  <tr>
+    <td class="name">CourtServiceImpl$$EnhancerBySpringCGLIB$$e7668b62</td>
+  </tr>
+  <tr>
+    <td class="name">CourtServiceImpl$$FastClassBySpringCGLIB$$5f60c0e3</td>
   </tr>
 <tr>
   <td class="name"><strong>total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    12.5%
+    100%
   </span>
   <span class="absValue">
-    (1/ 8)
+    (8/ 8)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    5%
+    100%
   </span>
   <span class="absValue">
-    (1/ 20)
+    (20/ 20)
   </span>
 </td>
 </tr>
@@ -111,53 +126,53 @@
 <i>24</i>&nbsp;
 <i>25</i>&nbsp;    @Override
 <i>26</i>&nbsp;    public List&lt;Court&gt; getAllCourtsByCity(String city) {
-<b class="nc"><i>27</i>&nbsp;        return courtRepository.findCourtByLocation_City( city);</b>
+<b class="fc"><i>27</i>&nbsp;        return courtRepository.findCourtByLocation_City( city);</b>
 <i>28</i>&nbsp;    }
 <i>29</i>&nbsp;
 <i>30</i>&nbsp;    @Override
 <i>31</i>&nbsp;    public List&lt;Court&gt; getAllCourtsByState(String state) {
-<b class="nc"><i>32</i>&nbsp;        return courtRepository.findCourtByLocation_State( state);</b>
+<b class="fc"><i>32</i>&nbsp;        return courtRepository.findCourtByLocation_State( state);</b>
 <i>33</i>&nbsp;    }
 <i>34</i>&nbsp;
 <i>35</i>&nbsp;
 <i>36</i>&nbsp;    @Override
 <i>37</i>&nbsp;    public List&lt;Court&gt; getAllCourtsByCountry(String country) {
-<b class="nc"><i>38</i>&nbsp;        return courtRepository.findCourtByLocation_Country( country);</b>
+<b class="fc"><i>38</i>&nbsp;        return courtRepository.findCourtByLocation_Country( country);</b>
 <i>39</i>&nbsp;    }
 <i>40</i>&nbsp;    @Override
 <i>41</i>&nbsp;    public List&lt;Court&gt; getAllCourts() {
-<b class="nc"><i>42</i>&nbsp;        return courtRepository.findAll();</b>
+<b class="fc"><i>42</i>&nbsp;        return courtRepository.findAll();</b>
 <i>43</i>&nbsp;    }
 <i>44</i>&nbsp;
 <i>45</i>&nbsp;    @Override
 <i>46</i>&nbsp;    public List&lt;TimeSlotResponseDTO&gt; getTimeSlotsOfCourt(int courtId) {
-<b class="nc"><i>47</i>&nbsp;        List&lt;Object[]&gt; dbResponse = timeSlotRepository.findTimeSlotsOfCourt(courtId);</b>
+<b class="fc"><i>47</i>&nbsp;        List&lt;Object[]&gt; dbResponse = timeSlotRepository.findTimeSlotsOfCourt(courtId);</b>
 <i>48</i>&nbsp;
-<b class="nc"><i>49</i>&nbsp;        List&lt;TimeSlotResponseDTO&gt;  result = new ArrayList&lt;&gt;();</b>
-<b class="nc"><i>50</i>&nbsp;        for(Object[] timeSlot : dbResponse){</b>
-<b class="nc"><i>51</i>&nbsp;            TimeSlotResponseDTO timeSlotResponseDTO = new TimeSlotResponseDTO(timeSlot);</b>
-<b class="nc"><i>52</i>&nbsp;            result.add(timeSlotResponseDTO);</b>
-<b class="nc"><i>53</i>&nbsp;        }</b>
-<b class="nc"><i>54</i>&nbsp;        return result;</b>
+<b class="fc"><i>49</i>&nbsp;        List&lt;TimeSlotResponseDTO&gt;  result = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>50</i>&nbsp;        for(Object[] timeSlot : dbResponse){</b>
+<b class="fc"><i>51</i>&nbsp;            TimeSlotResponseDTO timeSlotResponseDTO = new TimeSlotResponseDTO(timeSlot);</b>
+<b class="fc"><i>52</i>&nbsp;            result.add(timeSlotResponseDTO);</b>
+<b class="fc"><i>53</i>&nbsp;        }</b>
+<b class="fc"><i>54</i>&nbsp;        return result;</b>
 <i>55</i>&nbsp;    }
 <i>56</i>&nbsp;
 <i>57</i>&nbsp;    @Override
 <i>58</i>&nbsp;    public Court addCourt(CourtDTO courtDTO) {
 <i>59</i>&nbsp;
-<b class="nc"><i>60</i>&nbsp;        Court courtForDB = new Court();</b>
-<b class="nc"><i>61</i>&nbsp;        courtForDB.setCourtName(courtDTO.getCourtName());</b>
-<b class="nc"><i>62</i>&nbsp;        courtForDB.setLocation(courtDTO.getLocation());</b>
-<b class="nc"><i>63</i>&nbsp;        courtForDB.setGame(courtDTO.getGame());</b>
-<b class="nc"><i>64</i>&nbsp;        courtForDB.setTimeSlots(courtDTO.getTimeSlots());</b>
+<b class="fc"><i>60</i>&nbsp;        Court courtForDB = new Court();</b>
+<b class="fc"><i>61</i>&nbsp;        courtForDB.setCourtName(courtDTO.getCourtName());</b>
+<b class="fc"><i>62</i>&nbsp;        courtForDB.setLocation(courtDTO.getLocation());</b>
+<b class="fc"><i>63</i>&nbsp;        courtForDB.setGame(courtDTO.getGame());</b>
+<b class="fc"><i>64</i>&nbsp;        courtForDB.setTimeSlots(courtDTO.getTimeSlots());</b>
 <i>65</i>&nbsp;
-<b class="nc"><i>66</i>&nbsp;        Court savedCourt = courtRepository.save(courtForDB); //This savedGame object will have ID saved in DB</b>
+<b class="fc"><i>66</i>&nbsp;        Court savedCourt = courtRepository.save(courtForDB); //This savedGame object will have ID saved in DB</b>
 <i>67</i>&nbsp;
-<b class="nc"><i>68</i>&nbsp;        return savedCourt;</b>
+<b class="fc"><i>68</i>&nbsp;        return savedCourt;</b>
 <i>69</i>&nbsp;    }
 <i>70</i>&nbsp;
-<i>71</i>&nbsp;    @Override
-<i>72</i>&nbsp;    public List&lt;String&gt; addMultipleCourts(List&lt;Court&gt; courts) {
-<b class="nc"><i>73</i>&nbsp;        return null;</b>
+<i>71</i>&nbsp;    public List&lt;Court&gt; getCourtsByGameName(String gameName) {
+<i>72</i>&nbsp;
+<b class="fc"><i>73</i>&nbsp;        return courtRepository.findCourtsByGame_GameName( gameName);</b>
 <i>74</i>&nbsp;    }
 <i>75</i>&nbsp;}
 </div>
@@ -165,7 +180,7 @@
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2020-10-15 02:49</div>
+    <div style="float:right;">generated on 2020-10-19 01:01</div>
 </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 package dev.sukanya.gamecourtbooking.controller;
 
-import dev.sukanya.gamecourtbooking.dto.court.CourtDTO;
 import dev.sukanya.gamecourtbooking.dto.ResponseDTO;
+import dev.sukanya.gamecourtbooking.dto.court.CourtDTO;
 import dev.sukanya.gamecourtbooking.dto.timeslot.TimeSlotResponseDTO;
 import dev.sukanya.gamecourtbooking.model.courts.Court;
 import dev.sukanya.gamecourtbooking.service.interfaces.CourtService;
@@ -13,7 +13,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +67,7 @@ public class CourtController {
     }
 
     @GetMapping("/court/cityCourts/{city}")
-    public ResponseDTO<?> getCourtsByCity(@PathParam("city") String city){
+    public ResponseDTO<?> getCourtsByCity(@PathVariable("city") String city){
         log.info("Received Request for getting all courts of a city" );
 
         try{
@@ -81,7 +80,7 @@ public class CourtController {
     }
 
     @GetMapping("/court/stateCourts/{state}")
-    public ResponseDTO<?> getCourtsByState(@PathParam("state") String state){
+    public ResponseDTO<?> getCourtsByState(@PathVariable("state") String state){
         log.info("Received Request for getting all courts of a state" );
 
         try{
@@ -93,11 +92,23 @@ public class CourtController {
     }
 
     @GetMapping("/court/countryCourts/{country}")
-    public ResponseDTO<?> getAllCourtsByCountry(@PathParam("country") String country){
+    public ResponseDTO<?> getAllCourtsByCountry(@PathVariable("country") String country){
         log.info("Received Request for getting all courts of a country" );
 
         try{
             List<Court> courts= courtService.getAllCourtsByCountry(country);
+            return new ResponseDTO<List<Court>>(HttpStatus.OK, courts);
+        }catch( Exception e){
+            return new ResponseDTO<String>(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
+    }
+
+    @GetMapping("/court/gameCourts/{game}")
+    public ResponseDTO<?> getCourtsByGameName(@PathVariable("game") String game){
+        log.info("Received Request for getting all courts of a game" );
+
+        try{
+            List<Court> courts= courtService.getCourtsByGameName(game);
             return new ResponseDTO<List<Court>>(HttpStatus.OK, courts);
         }catch( Exception e){
             return new ResponseDTO<String>(HttpStatus.BAD_REQUEST, e.getMessage());

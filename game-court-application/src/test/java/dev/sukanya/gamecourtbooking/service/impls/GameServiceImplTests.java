@@ -5,11 +5,15 @@ import dev.sukanya.gamecourtbooking.exceptions.GameAlreadyExistsException;
 import dev.sukanya.gamecourtbooking.model.courts.Game;
 import dev.sukanya.gamecourtbooking.repository.GameRepository;
 import dev.sukanya.gamecourtbooking.service.interfaces.GameService;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -23,12 +27,19 @@ public class GameServiceImplTests {
     @MockBean
     private GameRepository gameRepository;
 
+
+    private static Game game;
+
+    @BeforeAll
+    public static void createDummies(){
+        game = new Game();
+        game.setId(7);
+        game.setGameName("Shuttle");
+    }
     @Test
     @DisplayName("Test add Game Success")
     public void testAddGameSuccess() throws Exception {
-        Game game = new Game();
-        game.setId(7);
-        game.setGameName("Shuttle");
+
         doReturn(game).when(gameRepository).save(any());
 
         GameDTO gameDTO = new GameDTO();
@@ -40,8 +51,8 @@ public class GameServiceImplTests {
     @Test
     @DisplayName("Test add Game Failure")
     public void testAddGameFailure() throws Exception {
-        Game game = null;
-        doReturn(game).when(gameRepository).save(any());
+
+        doReturn(game).when(gameRepository).findGameByGameName(any());
 
         GameDTO gameDTO = new GameDTO();
         gameDTO.setGameName("Shuttle");
@@ -54,9 +65,25 @@ public class GameServiceImplTests {
             actualMessage = gameAlreadyExistsException.getMessage();
         }
 
-        GameAlreadyExistsException exception = new GameAlreadyExistsException("Game already exists!");
+        assertThat(actualMessage.equals("Game already exists!"));
+    }
 
+    @Test
+    @DisplayName("Test add Multiple Games")
+    public void testAddMultipleGames() throws Exception {
 
-        assertThat(actualMessage.equals(exception.getMessage()));
+        //mock the method
+        doReturn(game).when(gameRepository).save(any());
+
+        List<GameDTO> games = new ArrayList<>();
+        GameDTO gameDTO1 = new GameDTO();
+        gameDTO1.setGameName("Shuttle");
+
+        GameDTO gameDTO2 = new GameDTO();
+        gameDTO2.setGameName("Carrom");
+        games.add(gameDTO1);
+        games.add(gameDTO2);
+        List<String> statuses = gameService.addMultipleGames(games);
+        assertThat(statuses.size()).isEqualTo(2);
     }
 }
