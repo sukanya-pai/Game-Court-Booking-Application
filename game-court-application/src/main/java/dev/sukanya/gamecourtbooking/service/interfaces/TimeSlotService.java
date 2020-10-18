@@ -10,4 +10,10 @@ public interface TimeSlotService {
     TimeSlot addTimeSlot(TimeSlotDTO timeSlotDTO);
 
     List<String> addMultipleTimeSlots(List<TimeSlotDTO> timeSlotDTOs);
+
+    TimeSlot convertTimeSlotDTOtoTimeSlot(TimeSlotDTO timeSlotDTO);
+    TimeSlot findTimeSlotById(int timeSlotId);
+
+    TimeSlotDTO convertTimeSlotToTimeSlotDTO(TimeSlot timeSlot);
+
 }

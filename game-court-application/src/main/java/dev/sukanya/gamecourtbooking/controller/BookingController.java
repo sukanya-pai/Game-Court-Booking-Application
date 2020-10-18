@@ -22,6 +22,12 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
+    /**
+     * This is used for booking a court by passing details of selected court id, gameid, timeslotid, booking name.
+     * @param bookingDTO
+     * @param result
+     * @return If sucessfull, returns the booking details along with cost.
+     */
     @PostMapping("/booking/createBooking")
     public ResponseDTO<?> createBooking(@RequestBody @Valid BookingDTO bookingDTO, BindingResult result){
         log.info("Received Request for booking court" );
@@ -39,6 +45,11 @@ public class BookingController {
 
     }
 
+    /**
+     * Used to get list of all the bookings.
+     * @param id
+     * @return List of all bookings
+     */
     @GetMapping("/booking/allBookings/{id}")
     public ResponseDTO<?> getAllBookings(@PathVariable("id") long id){
         log.info("Received Request for getting all bookings of a user" );

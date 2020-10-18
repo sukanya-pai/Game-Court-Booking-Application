@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class GameDTO {
-
+    private int id;
     @NotEmpty
     @NotNull
     private String gameName;

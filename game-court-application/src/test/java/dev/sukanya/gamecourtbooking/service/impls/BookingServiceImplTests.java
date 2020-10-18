@@ -1,5 +1,6 @@
 package dev.sukanya.gamecourtbooking.service.impls;
 
+import dev.sukanya.gamecourtbooking.dto.GameContextDTO;
 import dev.sukanya.gamecourtbooking.dto.booking.BookingDTO;
 import dev.sukanya.gamecourtbooking.dto.booking.BookingResponseDTO;
 import dev.sukanya.gamecourtbooking.model.courts.*;
@@ -94,51 +95,17 @@ public class BookingServiceImplTests {
         BookingDTO record = new BookingDTO();
         record.setBookingName("J Unit Test Book");
 
-        Court court = new Court();
-        court.setId(6);
-        court.setCourtName("Silver String Sports");
-        Location location = new Location();
-        location.setId(5);
-        location.setPinCode("560123");
-        location.setCountry("India");
-        location.setState("West Bengal");
-        location.setCity("Kolkata");
-        court.setLocation(location);
+        GameContextDTO gameContextDTO = new GameContextDTO();
 
-        Game game = new Game();
-        game.setId(2);
-        game.setGameName("Tennis");
-        court.setGame(game);
+        gameContextDTO.setCourtId(6);
 
-        List<TimeSlot> timeSlots = new ArrayList<>();
-        TimeSlot timeSlot1 = new TimeSlot();
-        timeSlot1.setStartDate(Time.valueOf("01:00:00"));
-        timeSlot1.setEndDate(Time.valueOf("02:00:00"));
-        timeSlot1.setId(4);
-        timeSlots.add(timeSlot1);
+        gameContextDTO.setUserId(1L);
 
-        TimeSlot timeSlot2 = new TimeSlot();
-        timeSlot2.setStartDate(Time.valueOf("03:00:00"));
-        timeSlot2.setEndDate(Time.valueOf("04:00:00"));
-        timeSlot2.setId(5);
-        timeSlots.add(timeSlot2);
-        court.setTimeSlots(timeSlots);
+        gameContextDTO.setTimeSlotId(5);
 
-        record.setCourt(court);
+        gameContextDTO.setGameId(2);
 
-        User user = new User();
-        user.setFullName("Sukanya Pai");
-        user.setId(1L);
-        user.setEmail("sukanyasurendrapai@gmail");
-
-        record.setUser(user);
-
-        TimeSlot timeSlot = new TimeSlot();
-        timeSlot.setId(5);
-        timeSlot.setStartDate(Time.valueOf("03:00:00"));
-        timeSlot.setEndDate(Time.valueOf("04:00:00"));
-
-        record.setTimeSlot(timeSlot);
+        record.setGameContextDTO(gameContextDTO);
         return record;
     }
 

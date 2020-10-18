@@ -21,9 +21,7 @@ public class TimeSlotServiceImpl implements TimeSlotService {
 
     @Override
     public TimeSlot addTimeSlot(TimeSlotDTO timeSlotDTO) {
-        TimeSlot timeSlotForDB = new TimeSlot();
-        timeSlotForDB.setStartDate(timeSlotDTO.getStartDate());
-        timeSlotForDB.setEndDate(timeSlotDTO.getEndDate());
+        TimeSlot timeSlotForDB = convertTimeSlotDTOtoTimeSlot(timeSlotDTO);
 
         TimeSlot savedTimeSlot = timeSlotRepository.save(timeSlotForDB); //This savedGame object will have ID saved in DB
 
@@ -35,8 +33,31 @@ public class TimeSlotServiceImpl implements TimeSlotService {
         List<String> status = new ArrayList<>();
        for(TimeSlotDTO timeSlotDTO: timeSlotDTOs){
            TimeSlot savedTimeSlot = addTimeSlot(timeSlotDTO);
-           status.add(savedTimeSlot.getStartDate() +"& "+savedTimeSlot.getEndDate()+ " - Time Slot added successfully.");
+           status.add(savedTimeSlot.getStartDate() +" to "+savedTimeSlot.getEndDate()+ " - Time Slot added successfully.");
        }
        return status;
+    }
+
+    @Override
+    public TimeSlot convertTimeSlotDTOtoTimeSlot(TimeSlotDTO timeSlotDTO){
+        TimeSlot timeSlotForDB = new TimeSlot();
+        timeSlotForDB.setStartDate(timeSlotDTO.getStartDate());
+        timeSlotForDB.setEndDate(timeSlotDTO.getEndDate());
+
+        return timeSlotForDB;
+    }
+
+    @Override
+    public TimeSlotDTO convertTimeSlotToTimeSlotDTO(TimeSlot timeSlot){
+        TimeSlotDTO timeSlotDTO = new TimeSlotDTO();
+        timeSlotDTO.setStartDate(timeSlot.getStartDate());
+        timeSlotDTO.setEndDate(timeSlot.getEndDate());
+
+        return timeSlotDTO;
+    }
+
+    @Override
+    public TimeSlot findTimeSlotById(int timeSlotId){
+        return timeSlotRepository.findById(timeSlotId).get();
     }
 }

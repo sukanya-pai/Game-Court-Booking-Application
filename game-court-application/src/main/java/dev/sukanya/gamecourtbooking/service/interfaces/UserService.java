@@ -9,4 +9,6 @@ public interface UserService {
     public User registerUser(UserDTO userDTO) throws UserAlreadyExistsException;
 
     public User validateUserOnToken(String token);
+
+    User findUserById(long userId);
 }

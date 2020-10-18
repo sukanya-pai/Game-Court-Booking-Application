@@ -23,6 +23,12 @@ public class TimeSlotController {
     @Autowired
     private TimeSlotService timeSlotService;
 
+    /**
+     * Adds a time slot into the system
+     * @param timeSlotDTO
+     * @param result
+     * @return
+     */
     @PostMapping("/timeSlot/addTimeSlot")
     public ResponseDTO<?> addTimeSlot(@RequestBody @Valid TimeSlotDTO timeSlotDTO, BindingResult result){
         log.info("Received Request for adding new court" );
@@ -39,6 +45,28 @@ public class TimeSlotController {
 
     }
 
+    /**
+     * Adds multiple time slots into the system
+     * @param timeSlotDTOS
+     * @param result
+     * @return
+     */
+    @PostMapping("/timeSlot/addMultipleTimeSlots")
+    public ResponseDTO<?> addMultipleTimeSlots(@RequestBody @Valid List<TimeSlotDTO> timeSlotDTOS, BindingResult result){
+        log.info("Received Request for adding multiple timeslots");
+        List<String> errorMessages = new ArrayList<String>();
+        if(checkForErrors(result, errorMessages)){
+            return new ResponseDTO<List<String>>(HttpStatus.BAD_REQUEST, errorMessages);
+        }
+
+        try{
+            List<String> statuses = timeSlotService.addMultipleTimeSlots(timeSlotDTOS);
+            return new ResponseDTO<List<String>>(HttpStatus.OK, statuses);
+        }catch( Exception e){
+            return new ResponseDTO<String>(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
+
+    }
 
     public boolean checkForErrors(BindingResult result, List<String> errorMessages){
         if (result.hasErrors()) {

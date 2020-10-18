@@ -24,6 +24,12 @@ public class RegistrationController {
     @Autowired  //Autowired --> For Dependency Injection in AOP programming
     private UserService userService;
 
+    /**
+     * Registers a new user after validating the entered details - email and password
+     * @param userDTO
+     * @param result
+     * @return
+     */
     @PostMapping("/user/register")
     public ResponseDTO<?> registerUser(@RequestBody @Valid UserDTO userDTO, BindingResult result){
         log.info("Received Request for registration",userDTO.getEmail());
@@ -45,6 +51,11 @@ public class RegistrationController {
 
     }
 
+    /**
+     * Validates whether this is the user logged in based on token
+     * @param token
+     * @return
+     */
     @GetMapping("/user/confirm")
     public ResponseDTO<UserResponseDTO> validateUser(@RequestParam String token){
         User user = userService.validateUserOnToken(token);

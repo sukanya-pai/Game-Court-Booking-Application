@@ -1,8 +1,6 @@
 package dev.sukanya.gamecourtbooking.dto.booking;
 
-import dev.sukanya.gamecourtbooking.model.courts.Court;
-import dev.sukanya.gamecourtbooking.model.courts.TimeSlot;
-import dev.sukanya.gamecourtbooking.model.user.User;
+import dev.sukanya.gamecourtbooking.dto.GameContextDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,10 +9,6 @@ import lombok.Setter;
 public class BookingDTO {
     private String bookingName;
 
-    private User user;
-
-    private Court court;
-
-    private TimeSlot timeSlot;
+    private GameContextDTO gameContextDTO;
 
 }

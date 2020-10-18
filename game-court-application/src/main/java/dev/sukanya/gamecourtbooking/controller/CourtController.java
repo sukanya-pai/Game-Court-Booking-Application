@@ -24,6 +24,12 @@ public class CourtController {
     @Autowired
     private CourtService courtService;
 
+    /**
+     * Adds new court into the application
+     * @param courtDTO
+     * @param result
+     * @return returns details of added court
+     */
     @PostMapping("/court/addCourt")
     public ResponseDTO<?> addCourt(@RequestBody @Valid CourtDTO courtDTO, BindingResult result){
         log.info("Received Request for adding new court" );
@@ -40,6 +46,10 @@ public class CourtController {
 
     }
 
+    /**
+     * Gets details of all the available courts in the system
+     * @return
+     */
     @GetMapping("/court/allCourts")
     public ResponseDTO<?> getAllCourts(){
         log.info("Received Request for getting all courts" );
@@ -53,6 +63,11 @@ public class CourtController {
 
     }
 
+    /**
+     * Get the time slot details of a selected court
+     * @param courtId
+     * @return
+     */
     @GetMapping("/court/timeSlots/{id}")
     public ResponseDTO<?> getTimeSlotsOfCourt(@PathVariable("id") int courtId){
         log.info("Received Request for getting all time slots of a court" );
@@ -66,6 +81,11 @@ public class CourtController {
 
     }
 
+    /**
+     * Get list of all courts in a city
+     * @param city
+     * @return
+     */
     @GetMapping("/court/cityCourts/{city}")
     public ResponseDTO<?> getCourtsByCity(@PathVariable("city") String city){
         log.info("Received Request for getting all courts of a city" );
@@ -79,6 +99,11 @@ public class CourtController {
 
     }
 
+    /**
+     * Get lists of all courts in a state
+     * @param state
+     * @return
+     */
     @GetMapping("/court/stateCourts/{state}")
     public ResponseDTO<?> getCourtsByState(@PathVariable("state") String state){
         log.info("Received Request for getting all courts of a state" );
@@ -91,6 +116,11 @@ public class CourtController {
         }
     }
 
+    /**
+     * Get list of all courts in a country
+     * @param country
+     * @return
+     */
     @GetMapping("/court/countryCourts/{country}")
     public ResponseDTO<?> getAllCourtsByCountry(@PathVariable("country") String country){
         log.info("Received Request for getting all courts of a country" );
@@ -103,6 +133,11 @@ public class CourtController {
         }
     }
 
+    /**
+     * Get list of all courts supporting the game
+     * @param game
+     * @return
+     */
     @GetMapping("/court/gameCourts/{game}")
     public ResponseDTO<?> getCourtsByGameName(@PathVariable("game") String game){
         log.info("Received Request for getting all courts of a game" );

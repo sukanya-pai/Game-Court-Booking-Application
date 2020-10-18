@@ -11,6 +11,8 @@ import java.util.List;
 @Getter
 @Setter
 public class CourtDTO {
+    private int Id;
+
     private String courtName;
 
     private Location location;
@@ -18,4 +20,15 @@ public class CourtDTO {
     private Game game;
 
     private List<TimeSlot> timeSlots;
+
+    private long specialCourtChargePerHour;
+
+    public CourtDTO(){
+
+    }
+
+    //for all classes to work
+    public CourtDTO(long specialCourtChargePerHour){
+        this.specialCourtChargePerHour = specialCourtChargePerHour;
+    }
 }

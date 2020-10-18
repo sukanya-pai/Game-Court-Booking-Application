@@ -10,4 +10,6 @@ public interface GameService {
     Game addGame(GameDTO gameDTO) throws GameAlreadyExistsException;
 
     List<String> addMultipleGames(List<GameDTO> gameDTOs);
+
+    Game findGameById(int gameId);
 }

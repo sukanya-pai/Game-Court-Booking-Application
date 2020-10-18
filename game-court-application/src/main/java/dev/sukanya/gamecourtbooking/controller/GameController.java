@@ -26,6 +26,12 @@ public class GameController {
     @Autowired
     private GameService gameService;
 
+    /**
+     * Adds a game into the system
+     * @param gameDTO
+     * @param result
+     * @return
+     */
     @PostMapping("/game/addGame")
     public ResponseDTO<?> addGame(@RequestBody @Valid GameDTO gameDTO, BindingResult result){
 
@@ -43,7 +49,12 @@ public class GameController {
 
     }
 
-
+    /**
+     * Adds multiple games into the system
+     * @param gameDTOs
+     * @param result
+     * @return
+     */
     @PostMapping("/game/addMultipleGames")
     public ResponseDTO<?> addMultipleGames(@RequestBody @Valid List<GameDTO> gameDTOs, BindingResult result){
         log.info("Received Request for adding multiple games");

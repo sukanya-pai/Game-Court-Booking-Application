@@ -26,6 +26,12 @@ public class LocationController {
     @Autowired
     private LocationService locationService;
 
+    /**
+     * Adds a location into the system
+     * @param locationDTO
+     * @param result
+     * @return
+     */
     @PostMapping("/location/addLocation")
     public ResponseDTO<?> addGame(@RequestBody @Valid LocationDTO locationDTO, BindingResult result){
         log.info("Received Request for adding new location ",locationDTO.getPinCode());
@@ -42,6 +48,12 @@ public class LocationController {
 
     }
 
+    /**
+     * Adds multiple locations into the system
+     * @param locationDTOs
+     * @param result
+     * @return
+     */
     @PostMapping("/location/addMultipleLocations")
     public ResponseDTO<?> addMultipleGames(@RequestBody @Valid List<LocationDTO> locationDTOs, BindingResult result){
         log.info("Received Request for adding multiple locations");

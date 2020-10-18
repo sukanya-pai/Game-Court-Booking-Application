@@ -29,4 +29,6 @@ public class Court {
             joinColumns = @JoinColumn(name="court_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name="timeslot_id",referencedColumnName = "id"))
     private List<TimeSlot> timeSlots;
+
+    private long specialCourtChargesPerHour;
  }

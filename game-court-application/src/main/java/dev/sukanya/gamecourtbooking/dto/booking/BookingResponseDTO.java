@@ -21,12 +21,15 @@ public class BookingResponseDTO {
 
     private TimeSlotResponseDTO timeSlot;
 
-    public BookingResponseDTO(int bookingId, String bookingName, UserResponseDTO user, String courtName, String address, TimeSlotResponseDTO timeSlot) {
+    private long cost;
+
+    public BookingResponseDTO(int bookingId, String bookingName, UserResponseDTO user, String courtName, String address, TimeSlotResponseDTO timeSlot, long cost) {
         this.bookingId = bookingId;
         this.bookingName = bookingName;
         this.user = user;
         this.courtName = courtName;
         this.address = address;
         this.timeSlot = timeSlot;
+        this.cost = cost;
     }
 }

@@ -3,10 +3,10 @@ package dev.sukanya.gamecourtbooking.model.courts;
 import dev.sukanya.gamecourtbooking.model.user.User;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 @Entity
 @Table(name="booking")
@@ -29,7 +29,9 @@ public class Booking {
     private TimeSlot timeSlot;
 
     @Column(nullable = false, updatable = false)
-    @CreationTimestamp
-    private Timestamp bookedDate;
+    @CreatedDate
+    private Date bookedDate;
+
+    private long cost;
 
 }

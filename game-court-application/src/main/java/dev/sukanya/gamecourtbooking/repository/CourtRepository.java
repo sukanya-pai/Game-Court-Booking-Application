@@ -17,4 +17,5 @@ public interface CourtRepository extends JpaRepository<Court,Integer> {
 
     List<Court> findCourtsByGame_GameName(String gameName);
 
+    Court findCourtsByCourtNameAndLocation_IdAndAndGame_Id(String courtName, int locationId, int gameId);
 }
