@@ -10,7 +10,7 @@ public class CourtFactory {
         }
         if(gameName.equalsIgnoreCase("Badminton")) {
 
-            return new BadmintonCourtDTO(2000L);
+            return new BadmintonCourtDTO(2000);
         }
         else if(gameName.equalsIgnoreCase("Tennis")){
             //return new TennisGameDTO()

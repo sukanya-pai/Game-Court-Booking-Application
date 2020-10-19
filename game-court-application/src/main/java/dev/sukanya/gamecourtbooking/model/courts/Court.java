@@ -30,5 +30,5 @@ public class Court {
             inverseJoinColumns = @JoinColumn(name="timeslot_id",referencedColumnName = "id"))
     private List<TimeSlot> timeSlots;
 
-    private long specialCourtChargesPerHour;
+    private int specialCourtChargesPerHour;
  }

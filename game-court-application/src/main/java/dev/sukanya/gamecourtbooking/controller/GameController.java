@@ -32,7 +32,7 @@ public class GameController {
      * @param result
      * @return
      */
-    @PostMapping("/game/addGame")
+    @PostMapping("api/game-management/new-game")
     public ResponseDTO<?> addGame(@RequestBody @Valid GameDTO gameDTO, BindingResult result){
 
         log.info("Received Request for adding new game ",gameDTO.getGameName());
@@ -55,7 +55,7 @@ public class GameController {
      * @param result
      * @return
      */
-    @PostMapping("/game/addMultipleGames")
+    @PostMapping("api/game-management/new-games")
     public ResponseDTO<?> addMultipleGames(@RequestBody @Valid List<GameDTO> gameDTOs, BindingResult result){
         log.info("Received Request for adding multiple games");
         List<String> errorMessages = new ArrayList<String>();

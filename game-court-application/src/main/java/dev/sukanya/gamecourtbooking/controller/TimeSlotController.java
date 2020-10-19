@@ -29,7 +29,7 @@ public class TimeSlotController {
      * @param result
      * @return
      */
-    @PostMapping("/timeSlot/addTimeSlot")
+    @PostMapping("api/timeslot-management/new-timeslot")
     public ResponseDTO<?> addTimeSlot(@RequestBody @Valid TimeSlotDTO timeSlotDTO, BindingResult result){
         log.info("Received Request for adding new court" );
         List<String> errorMessages = new ArrayList<String>();
@@ -51,7 +51,7 @@ public class TimeSlotController {
      * @param result
      * @return
      */
-    @PostMapping("/timeSlot/addMultipleTimeSlots")
+    @PostMapping("api/timeslot-management/new-timeslots")
     public ResponseDTO<?> addMultipleTimeSlots(@RequestBody @Valid List<TimeSlotDTO> timeSlotDTOS, BindingResult result){
         log.info("Received Request for adding multiple timeslots");
         List<String> errorMessages = new ArrayList<String>();

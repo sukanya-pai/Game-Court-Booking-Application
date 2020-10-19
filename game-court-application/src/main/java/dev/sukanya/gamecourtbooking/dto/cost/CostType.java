@@ -4,5 +4,5 @@ import dev.sukanya.gamecourtbooking.dto.timeslot.TimeSlotDTO;
 
 public interface CostType {
 
-    long costCalculationAlgorithm(long specialCourtChargePerHour, TimeSlotDTO selectedTimeSlot);
+    int costCalculationAlgorithm(int specialCourtChargePerHour, TimeSlotDTO selectedTimeSlot);
 }

@@ -28,7 +28,7 @@ public class BookingController {
      * @param result
      * @return If sucessfull, returns the booking details along with cost.
      */
-    @PostMapping("/booking/createBooking")
+    @PostMapping("api/booking-management/book-court")
     public ResponseDTO<?> createBooking(@RequestBody @Valid BookingDTO bookingDTO, BindingResult result){
         log.info("Received Request for booking court" );
         List<String> errorMessages = new ArrayList<String>();
@@ -50,7 +50,7 @@ public class BookingController {
      * @param id
      * @return List of all bookings
      */
-    @GetMapping("/booking/allBookings/{id}")
+    @GetMapping("api/booking-management/users/{id}/bookings")
     public ResponseDTO<?> getAllBookings(@PathVariable("id") long id){
         log.info("Received Request for getting all bookings of a user" );
 

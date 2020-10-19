@@ -30,7 +30,7 @@ public class RegistrationController {
      * @param result
      * @return
      */
-    @PostMapping("/user/register")
+    @PostMapping("api/user-management/register-user")
     public ResponseDTO<?> registerUser(@RequestBody @Valid UserDTO userDTO, BindingResult result){
         log.info("Received Request for registration",userDTO.getEmail());
         if (result.hasErrors()) {
@@ -56,7 +56,7 @@ public class RegistrationController {
      * @param token
      * @return
      */
-    @GetMapping("/user/confirm")
+    @GetMapping("api/user-management/confirm-user")
     public ResponseDTO<UserResponseDTO> validateUser(@RequestParam String token){
         User user = userService.validateUserOnToken(token);
 

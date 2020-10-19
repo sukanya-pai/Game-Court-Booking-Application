@@ -32,7 +32,7 @@ public class LocationController {
      * @param result
      * @return
      */
-    @PostMapping("/location/addLocation")
+    @PostMapping("api/location-management/new-location")
     public ResponseDTO<?> addGame(@RequestBody @Valid LocationDTO locationDTO, BindingResult result){
         log.info("Received Request for adding new location ",locationDTO.getPinCode());
         List<String> errorMessages = new ArrayList<String>();
@@ -54,7 +54,7 @@ public class LocationController {
      * @param result
      * @return
      */
-    @PostMapping("/location/addMultipleLocations")
+    @PostMapping("api/location-management/new-locations")
     public ResponseDTO<?> addMultipleGames(@RequestBody @Valid List<LocationDTO> locationDTOs, BindingResult result){
         log.info("Received Request for adding multiple locations");
         List<String> errorMessages = new ArrayList<String>();

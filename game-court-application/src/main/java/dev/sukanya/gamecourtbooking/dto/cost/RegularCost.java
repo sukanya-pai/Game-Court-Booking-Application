@@ -7,15 +7,15 @@ import java.time.Duration;
 
 @Component
 public class RegularCost implements CostType{
-    private final long REGULAR_COST_PER_HOUR = 2000;
+    private final int REGULAR_COST_PER_HOUR = 2000;
 
     @Override
-    public long costCalculationAlgorithm(long courtCharge, TimeSlotDTO selectedTimeSlot) {
+    public int costCalculationAlgorithm(int courtCharge, TimeSlotDTO selectedTimeSlot) {
 
         Duration duration  = Duration.between(selectedTimeSlot.getStartDate().toLocalTime(),selectedTimeSlot.getEndDate().toLocalTime());
-        long durationInHours = duration.toHours();
+        int durationInHours = (int)duration.toHours();
 
-        long finalCost = (REGULAR_COST_PER_HOUR+courtCharge)*durationInHours ;
+        int finalCost = (REGULAR_COST_PER_HOUR+courtCharge)*durationInHours ;
 
 
         return finalCost;

@@ -7,13 +7,12 @@ import lombok.Setter;
 @Setter
 public class BadmintonCourtDTO extends CourtDTO {
     private boolean isOpen;
-//    private long specialCourtChargePerHour;
     public BadmintonCourtDTO(){
         super();
         this.isOpen = true;
     }
 
-    public BadmintonCourtDTO(long specialCourtChargePerHour){
+    public BadmintonCourtDTO(int specialCourtChargePerHour){
         super();
         this.isOpen = true;
         super.setSpecialCourtChargePerHour(specialCourtChargePerHour);

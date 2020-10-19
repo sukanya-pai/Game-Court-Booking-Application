@@ -21,14 +21,14 @@ public class CourtDTO {
 
     private List<TimeSlot> timeSlots;
 
-    private long specialCourtChargePerHour;
+    private int specialCourtChargePerHour;
 
     public CourtDTO(){
 
     }
 
     //for all classes to work
-    public CourtDTO(long specialCourtChargePerHour){
+    public CourtDTO(int specialCourtChargePerHour){
         this.specialCourtChargePerHour = specialCourtChargePerHour;
     }
 }
