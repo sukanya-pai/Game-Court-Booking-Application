@@ -42,7 +42,7 @@
     100%
   </span>
   <span class="absValue">
-    (3/ 3)
+    (6/ 6)
   </span>
 </td>
 <td class="coverageStat">
@@ -50,27 +50,15 @@
     100%
   </span>
   <span class="absValue">
-    (12/ 12)
+    (19/ 19)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$2cabc3d6</td>
+    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$cd3957f9</td>
   </tr>
   <tr>
-    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$2cc69e9e</td>
-  </tr>
-  <tr>
-    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$2cc69e9e$$FastClassBySpringCGLIB$$54856ae4</td>
-  </tr>
-  <tr>
-    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$4fbb07fd</td>
-  </tr>
-  <tr>
-    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$87698cc0</td>
-  </tr>
-  <tr>
-    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$de3c13cc</td>
+    <td class="name">TimeSlotServiceImpl$$EnhancerBySpringCGLIB$$cd3957f9$$FastClassBySpringCGLIB$$19c46ca4</td>
   </tr>
   <tr>
     <td class="name">TimeSlotServiceImpl$$FastClassBySpringCGLIB$$1df7eb71</td>
@@ -82,7 +70,7 @@
     100%
   </span>
   <span class="absValue">
-    (3/ 3)
+    (6/ 6)
   </span>
 </td>
 <td class="coverageStat">
@@ -90,7 +78,7 @@
     100%
   </span>
   <span class="absValue">
-    (12/ 12)
+    (19/ 19)
   </span>
 </td>
 </tr>
@@ -123,31 +111,52 @@
 <i>21</i>&nbsp;
 <i>22</i>&nbsp;    @Override
 <i>23</i>&nbsp;    public TimeSlot addTimeSlot(TimeSlotDTO timeSlotDTO) {
-<b class="fc"><i>24</i>&nbsp;        TimeSlot timeSlotForDB = new TimeSlot();</b>
-<b class="fc"><i>25</i>&nbsp;        timeSlotForDB.setStartDate(timeSlotDTO.getStartDate());</b>
-<b class="fc"><i>26</i>&nbsp;        timeSlotForDB.setEndDate(timeSlotDTO.getEndDate());</b>
+<b class="fc"><i>24</i>&nbsp;        TimeSlot timeSlotForDB = convertTimeSlotDTOtoTimeSlot(timeSlotDTO);</b>
+<i>25</i>&nbsp;
+<b class="fc"><i>26</i>&nbsp;        TimeSlot savedTimeSlot = timeSlotRepository.save(timeSlotForDB); //This savedGame object will have ID saved in DB</b>
 <i>27</i>&nbsp;
-<b class="fc"><i>28</i>&nbsp;        TimeSlot savedTimeSlot = timeSlotRepository.save(timeSlotForDB); //This savedGame object will have ID saved in DB</b>
-<i>29</i>&nbsp;
-<b class="fc"><i>30</i>&nbsp;        return savedTimeSlot;</b>
-<i>31</i>&nbsp;    }
-<i>32</i>&nbsp;
-<i>33</i>&nbsp;    @Override
-<i>34</i>&nbsp;    public List&lt;String&gt; addMultipleTimeSlots(List&lt;TimeSlotDTO&gt; timeSlotDTOs) {
-<b class="fc"><i>35</i>&nbsp;        List&lt;String&gt; status = new ArrayList&lt;&gt;();</b>
-<b class="fc"><i>36</i>&nbsp;       for(TimeSlotDTO timeSlotDTO: timeSlotDTOs){</b>
-<b class="fc"><i>37</i>&nbsp;           TimeSlot savedTimeSlot = addTimeSlot(timeSlotDTO);</b>
-<b class="fc"><i>38</i>&nbsp;           status.add(savedTimeSlot.getStartDate() +&quot;&amp; &quot;+savedTimeSlot.getEndDate()+ &quot; - Time Slot added successfully.&quot;);</b>
-<b class="fc"><i>39</i>&nbsp;       }</b>
-<b class="fc"><i>40</i>&nbsp;       return status;</b>
-<i>41</i>&nbsp;    }
-<i>42</i>&nbsp;}
+<b class="fc"><i>28</i>&nbsp;        return savedTimeSlot;</b>
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    @Override
+<i>32</i>&nbsp;    public List&lt;String&gt; addMultipleTimeSlots(List&lt;TimeSlotDTO&gt; timeSlotDTOs) {
+<b class="fc"><i>33</i>&nbsp;        List&lt;String&gt; status = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>34</i>&nbsp;       for(TimeSlotDTO timeSlotDTO: timeSlotDTOs){</b>
+<b class="fc"><i>35</i>&nbsp;           TimeSlot savedTimeSlot = addTimeSlot(timeSlotDTO);</b>
+<b class="fc"><i>36</i>&nbsp;           status.add(savedTimeSlot.getStartDate() +&quot; to &quot;+savedTimeSlot.getEndDate()+ &quot; - Time Slot added successfully.&quot;);</b>
+<b class="fc"><i>37</i>&nbsp;       }</b>
+<b class="fc"><i>38</i>&nbsp;       return status;</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    @Override
+<i>42</i>&nbsp;    public TimeSlot convertTimeSlotDTOtoTimeSlot(TimeSlotDTO timeSlotDTO){
+<b class="fc"><i>43</i>&nbsp;        TimeSlot timeSlotForDB = new TimeSlot();</b>
+<b class="fc"><i>44</i>&nbsp;        timeSlotForDB.setStartDate(timeSlotDTO.getStartDate());</b>
+<b class="fc"><i>45</i>&nbsp;        timeSlotForDB.setEndDate(timeSlotDTO.getEndDate());</b>
+<i>46</i>&nbsp;
+<b class="fc"><i>47</i>&nbsp;        return timeSlotForDB;</b>
+<i>48</i>&nbsp;    }
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;    @Override
+<i>51</i>&nbsp;    public TimeSlotDTO convertTimeSlotToTimeSlotDTO(TimeSlot timeSlot){
+<b class="fc"><i>52</i>&nbsp;        TimeSlotDTO timeSlotDTO = new TimeSlotDTO();</b>
+<b class="fc"><i>53</i>&nbsp;        timeSlotDTO.setStartDate(timeSlot.getStartDate());</b>
+<b class="fc"><i>54</i>&nbsp;        timeSlotDTO.setEndDate(timeSlot.getEndDate());</b>
+<i>55</i>&nbsp;
+<b class="fc"><i>56</i>&nbsp;        return timeSlotDTO;</b>
+<i>57</i>&nbsp;    }
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    @Override
+<i>60</i>&nbsp;    public TimeSlot findTimeSlotById(int timeSlotId){
+<b class="fc"><i>61</i>&nbsp;        return timeSlotRepository.findById(timeSlotId).get();</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2020-10-19 01:01</div>
+    <div style="float:right;">generated on 2020-10-19 20:39</div>
 </div>
 </body>
 </html>

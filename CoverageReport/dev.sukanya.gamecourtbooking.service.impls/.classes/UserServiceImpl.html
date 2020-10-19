@@ -42,35 +42,23 @@
     100%
   </span>
   <span class="absValue">
-    (3/ 3)
+    (4/ 4)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    95.2%
+    95.5%
   </span>
   <span class="absValue">
-    (20/ 21)
+    (21/ 22)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$2658ba2c</td>
+    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$1555fe59</td>
   </tr>
   <tr>
-    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$74c86a36</td>
-  </tr>
-  <tr>
-    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$74e344fe</td>
-  </tr>
-  <tr>
-    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$97d7ae5d</td>
-  </tr>
-  <tr>
-    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$cf863320</td>
-  </tr>
-  <tr>
-    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$cf863320$$FastClassBySpringCGLIB$$c8c1d787</td>
+    <td class="name">UserServiceImpl$$EnhancerBySpringCGLIB$$1555fe59$$FastClassBySpringCGLIB$$59a1062f</td>
   </tr>
   <tr>
     <td class="name">UserServiceImpl$$FastClassBySpringCGLIB$$755d3191</td>
@@ -82,15 +70,15 @@
     100%
   </span>
   <span class="absValue">
-    (3/ 3)
+    (4/ 4)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    95.2%
+    95.5%
   </span>
   <span class="absValue">
-    (20/ 21)
+    (21/ 22)
   </span>
 </td>
 </tr>
@@ -187,13 +175,18 @@
 <i>85</i>&nbsp;        //else return null;
 <i>86</i>&nbsp;
 <i>87</i>&nbsp;    }
-<i>88</i>&nbsp;}
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;    @Override
+<i>90</i>&nbsp;    public User findUserById(long userId) {
+<b class="fc"><i>91</i>&nbsp;        return userRepository.findById(userId).get();</b>
+<i>92</i>&nbsp;    }
+<i>93</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2020-10-19 01:01</div>
+    <div style="float:right;">generated on 2020-10-19 20:39</div>
 </div>
 </body>
 </html>

@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,8 +56,7 @@ public class BookingServiceImpl implements BookingService {
             int gameId = court.getGame().getId();
 
             //today's date
-            long millis=System.currentTimeMillis();
-            Date todaysDate=new Date(millis);
+            Date todaysDate = Date.valueOf(LocalDate.now());
             Booking booking = bookingRepository.findBookingByBookedDateAndCourt_Location_IdAndCourt_Game_IdAndTimeSlot_Id(todaysDate, locationId,gameId,timeSlotId);
 
             if(booking!=null){
@@ -94,6 +94,8 @@ public class BookingServiceImpl implements BookingService {
         //algorithm to calculate cost - based on court type and time slot selected charges would be calculated
         booking.setCost(costType.costCalculationAlgorithm(court.getSpecialCourtChargesPerHour(),timeSlotService.convertTimeSlotToTimeSlotDTO(timeSlot)));
 
+        // today's date
+        booking.setBookedDate(Date.valueOf(LocalDate.now()));
         Booking bookingFromDB = bookingRepository.save(booking);
         BookingResponseDTO bookingResponseDTO = convertToBookingResponseDTO(bookingFromDB);
 
