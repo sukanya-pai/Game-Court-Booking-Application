@@ -1,4 +1,4 @@
-# Intuit Craft Demo - GameCourtBookingApplication
+# Game Court Booking Application
 
 # High Level Design:
 
